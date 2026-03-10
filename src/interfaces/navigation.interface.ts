@@ -5,4 +5,10 @@ export interface NavItem {
   href: string;
   icon: LucideIcon;
   active?: boolean;
+  hasSubmenu?: boolean;
+}
+
+export interface NavSection {
+  title: string;
+  items: NavItem[];
 }

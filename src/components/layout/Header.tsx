@@ -1,75 +1,53 @@
 "use client";
 
-import { Search, Bell, ChevronDown } from "lucide-react";
+import { Search, Bell, ChevronDown, UserRound } from "lucide-react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
-interface HeaderProps {
-  title: string;
-}
-
-export function Header({ title }: HeaderProps) {
+export function Header() {
   return (
-    <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b bg-card px-4 md:px-6">
-      {/* Left: Page Title */}
-      <div className="flex items-center gap-4">
-        {/* Spacer for mobile hamburger */}
-        <div className="w-10 lg:hidden" />
-        <h1 className="text-lg font-semibold md:text-xl">{title}</h1>
+    <header className="sticky top-0 z-40 flex h-22 items-center justify-between border-b border-[#ebebeb] bg-white px-8">
+      {/* Left: Page Info */}
+      <div className="flex items-center gap-3.5">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#fafafa] shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
+          <UserRound className="h-6 w-6 text-[#171717]" />
+        </div>
+        <div className="flex flex-col gap-1">
+          <h1 className="text-lg font-medium leading-6 tracking-[-0.27px] text-[#171717]">
+            Client Details
+          </h1>
+          <p className="text-sm leading-5 tracking-[-0.084px] text-[#5c5c5c]">
+            View client details, update profiles, and manage account activity.
+          </p>
+        </div>
       </div>
 
       {/* Right: Actions */}
-      <div className="flex items-center gap-2 md:gap-4">
+      <div className="flex items-center gap-2">
         {/* Search */}
-        <div className="relative hidden md:block">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            placeholder="Search..."
-            className="h-9 w-[200px] pl-9 lg:w-[280px]"
-          />
-        </div>
-        <Button variant="ghost" size="icon" className="md:hidden">
-          <Search className="h-5 w-5" />
-        </Button>
+        <button className="flex h-10 w-10 items-center justify-center rounded-[10px]">
+          <Search className="h-5 w-5 text-[#171717]" />
+        </button>
 
         {/* Notifications */}
-        <Button variant="ghost" size="icon" className="relative">
-          <Bell className="h-5 w-5" />
-          <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-destructive" />
-        </Button>
+        <button className="relative flex h-10 w-10 items-center justify-center rounded-[10px]">
+          <Bell className="h-5 w-5 text-[#171717]" />
+          <span className="absolute right-3 top-3 h-1 w-1 rounded-full bg-red-500" />
+        </button>
 
-        {/* Admin Profile Dropdown */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="gap-2 px-2">
-              <Image
-                src="/images/user2.png"
-                alt="Admin"
-                width={32}
-                height={32}
-                className="rounded-full"
-              />
-              <span className="hidden text-sm font-medium md:inline-block">
-                Admin
-              </span>
-              <ChevronDown className="h-4 w-4 text-muted-foreground" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-48">
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Log Out</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        {/* User Profile */}
+        <button className="flex items-center gap-1.5 rounded-[10px] border border-[#ebebeb] py-1 pl-1 pr-2">
+          <Image
+            src="/images/user2.png"
+            alt="Super Admin"
+            width={32}
+            height={32}
+            className="rounded-full"
+          />
+          <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
+            Super Admin
+          </span>
+          <ChevronDown className="h-5 w-5 text-[#5c5c5c]" />
+        </button>
       </div>
     </header>
   );

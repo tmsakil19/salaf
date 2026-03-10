@@ -1,18 +1,14 @@
 import Image from "next/image";
 import {
-  Mail,
-  Phone,
-  Globe,
   MapPin,
-  DollarSign,
-  MessageCircle,
+  Copy,
   ExternalLink,
-  Flag,
+  ChevronDown,
+  MoreHorizontal,
+  Phone,
+  Link as LinkIcon,
+  DollarSign,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { ClientTags } from "@/components/client/ClientTags";
 import type { ClientProfile as ClientProfileType } from "@/interfaces/client.interface";
 
 interface ClientProfileProps {
@@ -21,72 +17,127 @@ interface ClientProfileProps {
 
 export function ClientProfile({ client }: ClientProfileProps) {
   return (
-    <Card>
-      <CardContent className="p-6">
-        <div className="flex flex-col gap-6 md:flex-row md:items-start">
-          {/* Avatar & Name */}
-          <div className="flex flex-col items-center gap-4 md:items-start">
-            <Image
-              src={client.avatar}
-              alt={client.name}
-              width={80}
-              height={80}
-              className="rounded-full"
-            />
-            <div className="text-center md:text-left">
-              <h2 className="text-xl font-semibold">{client.name}</h2>
-              <div className="mt-1 flex items-center justify-center gap-1.5 text-sm text-muted-foreground md:justify-start">
-                <Flag className="h-4 w-4" />
-                <span>{client.contact.country}</span>
-              </div>
-              <div className="mt-3">
-                <ClientTags tags={client.tags} />
-              </div>
+    <div className="rounded-lg border border-[#ebebeb] bg-[#f7f7f7] p-5">
+      {/* Top row: Avatar, Name, Badges, More button */}
+      <div className="flex items-start justify-between">
+        <div className="flex items-center gap-4">
+          {/* Avatar */}
+          <div className="relative h-16 w-16 shrink-0">
+            <div className="h-16 w-16 overflow-hidden rounded-full border-[3px] border-white shadow-[0px_16px_24px_0px_rgba(0,0,0,0.05)]">
+              <Image
+                src={client.avatar}
+                alt={client.name}
+                width={64}
+                height={64}
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
-
-          <Separator className="md:hidden" />
-          <Separator orientation="vertical" className="hidden h-auto self-stretch md:block" />
-
-          {/* Contact Info */}
-          <div className="flex-1 space-y-3">
-            <div className="grid gap-3 sm:grid-cols-2">
-              <div className="flex items-center gap-2 text-sm">
-                <Mail className="h-4 w-4 text-muted-foreground" />
-                <span>{client.contact.email}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Phone className="h-4 w-4 text-muted-foreground" />
-                <span>{client.contact.phone}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Globe className="h-4 w-4 text-muted-foreground" />
-                <span>{client.contact.website}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <MapPin className="h-4 w-4 text-muted-foreground" />
-                <span>{client.contact.location}</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <DollarSign className="h-4 w-4 text-muted-foreground" />
-                <span>{client.contact.currency}</span>
+          {/* Name & Badges */}
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-7.5">
+              <h2 className="text-2xl font-medium leading-6 tracking-[-0.36px] text-[#171717]">
+                {client.name}
+              </h2>
+              <div className="flex items-center gap-2">
+                {client.tags.map((tag) =>
+                  tag.variant === "destructive" ? (
+                    <span
+                      key={tag.label}
+                      className="inline-flex items-center rounded-full bg-[#fb3748] px-2.5 py-0.5 text-[11px] font-medium uppercase leading-3 tracking-[0.22px] text-white"
+                    >
+                      {tag.label}
+                    </span>
+                  ) : (
+                    <span
+                      key={tag.label}
+                      className="inline-flex items-center gap-1 rounded-full border border-[#fa7319] px-2.5 py-0.5 text-[11px] font-medium uppercase leading-3 tracking-[0.22px] text-[#fa7319]"
+                    >
+                      {tag.label}
+                      <ChevronDown className="h-4 w-4" />
+                    </span>
+                  )
+                )}
               </div>
             </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-row gap-2 md:flex-col">
-            <Button variant="outline" className="gap-2">
-              <MessageCircle className="h-4 w-4" />
-              Chat
-            </Button>
-            <Button variant="outline" className="gap-2">
-              <ExternalLink className="h-4 w-4" />
-              Visit Website
-            </Button>
+            <p className="text-sm leading-5 tracking-[-0.084px] text-[#5c5c5c]">
+              {client.company}
+            </p>
           </div>
         </div>
-      </CardContent>
-    </Card>
+        {/* More button */}
+        <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#ebebeb] bg-white shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
+          <MoreHorizontal className="h-5 w-5 text-[#171717]" />
+        </button>
+      </div>
+
+      {/* Contact info row */}
+      <div className="mt-5 flex flex-wrap gap-3">
+        {/* Phone */}
+        <div className="flex items-center justify-between rounded-xl bg-white p-3 w-72.5">
+          <div className="flex items-center gap-2">
+            <Phone className="h-6 w-6 text-[#25d366]" />
+            <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
+              {client.contact.phone}
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <button className="flex h-7 w-8 items-center justify-center rounded-lg bg-[#f7f7f7]">
+              <Copy className="h-5 w-5 text-[#5c5c5c]" />
+            </button>
+            <button className="flex h-7 items-center gap-1 rounded-lg bg-[#f7f7f7] px-2">
+              <span className="text-sm font-medium text-[#5c5c5c]">Chat</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Website */}
+        <div className="flex items-center justify-between rounded-xl bg-white p-3 w-81.5">
+          <div className="flex items-center gap-2">
+            <LinkIcon className="h-6 w-6 text-[#171717]" />
+            <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
+              {client.contact.website}
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <button className="flex h-7 w-8 items-center justify-center rounded-lg bg-[#f7f7f7]">
+              <Copy className="h-5 w-5 text-[#5c5c5c]" />
+            </button>
+            <button className="flex h-7 items-center gap-1 rounded-lg bg-[#f7f7f7] px-2">
+              <ExternalLink className="h-4 w-4 text-[#5c5c5c]" />
+              <span className="text-sm font-medium text-[#5c5c5c]">Visit</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Location */}
+        <div className="flex items-center rounded-xl bg-white p-3">
+          <div className="flex items-center gap-2">
+            <MapPin className="h-6 w-6 text-[#171717]" />
+            <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
+              {client.contact.location}
+            </span>
+          </div>
+        </div>
+
+        {/* Currency */}
+        <div className="flex items-center justify-between rounded-xl bg-white p-3">
+          <div className="flex items-center gap-2">
+            <DollarSign className="h-6 w-6 text-[#171717]" />
+            <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
+              Currency
+            </span>
+          </div>
+          <div className="ml-4 flex items-center gap-2">
+            <span className="inline-flex h-5 w-5 items-center justify-center overflow-hidden rounded-full">
+              🇧🇩
+            </span>
+            <span className="text-sm font-medium text-[#171717]">
+              {client.contact.currency}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

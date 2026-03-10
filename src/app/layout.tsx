@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,13 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${outfit.variable} antialiased font-(family-name:--font-outfit)`}>
         <Sidebar />
-        <div className="min-h-screen lg:pl-[260px]">
-          <Header title="Client Details" />
-          <main className="p-4 md:p-6">{children}</main>
+        <div className="min-h-screen lg:pl-68">
+          <Header />
+          <main className="px-8 py-6">{children}</main>
         </div>
       </body>
     </html>

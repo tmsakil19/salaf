@@ -3,4 +3,5 @@ export interface MonthlyActivityData {
   deposits: number;
   withdrawals: number;
   topUps: number;
+  refunds: number;
 }

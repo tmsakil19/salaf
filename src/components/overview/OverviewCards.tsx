@@ -3,7 +3,7 @@ import { overviewCards } from "@/config/overviewCards";
 
 export function OverviewCards() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-2 gap-3">
       {overviewCards.map((card) => (
         <OverviewCard key={card.id} card={card} />
       ))}

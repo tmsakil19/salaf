@@ -16,6 +16,7 @@ export interface ClientProfile {
   id: string;
   name: string;
   avatar: string;
+  company: string;
   tags: ClientTag[];
   contact: ClientContact;
 }
