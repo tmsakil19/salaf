@@ -8,6 +8,7 @@ import { TransactionsTable } from "@/components/table/TransactionsTable";
 import { clientData } from "@/config/clients";
 import { Icon } from "@/components/ui/icon";
 import { Analytics02Icon } from "@hugeicons/core-free-icons";
+import { Button } from "@/components/ui/button";
 
 const tabs = ["Overview", "Ad Accounts", "Growth"];
 
@@ -29,18 +30,19 @@ export default function ClientDetailsPage() {
       <ClientProfile client={clientData} />
 
       {/* Segmented Tabs */}
-      <div className="flex items-center gap-0.5 rounded-xl bg-[#f5f5f5] p-1 w-fit">
+      <div className="flex items-start rounded-lg border border-stroke-soft bg-bg-weak p-1">
         {tabs.map((tab) => (
-          <button
+          <Button
             key={tab}
+            variant="ghost"
             onClick={() => setActiveTab(tab)}
-            className={`rounded-lg px-6 py-2.5 text-sm font-medium transition-colors ${activeTab === tab
-              ? "bg-white text-[#171717] shadow-[0px_6px_10px_0px_rgba(14,18,27,0.06),0px_2px_4px_0px_rgba(14,18,27,0.03)]"
-              : "sb-text-muted hover:text-[#5c5c5c]"
+            className={`rounded-[6px] px-6 py-1 h-10 text-lg font-medium leading-5 tracking-[-0.108px] transition-colors sm:px-10 hover:bg-gray-50 ${activeTab === tab
+              ? "bg-bg-white text-text-strong shadow-[0px_6px_10px_0px_rgba(14,18,27,0.06),0px_2px_4px_0px_rgba(14,18,27,0.03)]"
+              : "text-text-muted hover:text-text-sub"
               }`}
           >
             {tab}
-          </button>
+          </Button>
         ))}
       </div>
 
@@ -48,14 +50,14 @@ export default function ClientDetailsPage() {
       {activeTab === "Overview" && (
         <div className="space-y-5">
           {/* Account Overview title */}
-          <h2 className="text-lg font-medium text-[#171717]">Account Overview</h2>
+          <h2 className="text-lg font-medium text-text-strong">Account Overview</h2>
 
           {/* Spend chart + Cards grid */}
-          <div className="flex flex-col xl:flex-row gap-5">
-            <div className="flex-1 min-w-0">
+          <div className="grid lg:grid-cols-2 gap-5">
+            <div className="">
               <ActivityChart />
             </div>
-            <div className="w-full xl:w-[500px] shrink-0">
+            <div className="">
               <OverviewCards />
             </div>
           </div>
@@ -66,13 +68,13 @@ export default function ClientDetailsPage() {
       )}
 
       {activeTab === "Ad Accounts" && (
-        <div className="flex h-40 items-center justify-center rounded-lg border border-dashed text-[#a3a3a3]">
+        <div className="flex h-40 items-center justify-center rounded-lg border border-dashed text-text-soft">
           Ad Accounts content coming soon
         </div>
       )}
 
       {activeTab === "Growth" && (
-        <div className="flex h-40 items-center justify-center rounded-lg border border-dashed text-[#a3a3a3]">
+        <div className="flex h-40 items-center justify-center rounded-lg border border-dashed text-text-soft">
           Growth content coming soon
         </div>
       )}

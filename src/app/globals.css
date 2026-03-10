@@ -12,6 +12,7 @@
   --color-text-strong: var(--text-strong);
   --color-text-sub: var(--text-sub);
   --color-text-soft: var(--text-soft);
+  --color-text-muted: var(--text-muted);
   --color-stroke-soft: var(--stroke-soft);
   --color-primary-base: var(--primary-base);
   --color-primary-lighter: var(--primary-lighter);
@@ -72,6 +73,7 @@
   --text-strong: #171717;
   --text-sub: #5c5c5c;
   --text-soft: #a3a3a3;
+  --text-muted: #717171;
   --stroke-soft: #ebebeb;
   --primary-base: #335cff;
   --primary-lighter: #ebf1ff;
