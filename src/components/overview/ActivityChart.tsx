@@ -63,7 +63,6 @@ export function ActivityChart() {
         <div className="flex items-start justify-between">
           <div className="grid grid-cols-2 gap-x-6 gap-y-4">
             {spendStats.map((stat) => {
-
               return (
                 <div key={stat.label} className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5">
