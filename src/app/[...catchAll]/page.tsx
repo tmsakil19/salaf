@@ -7,23 +7,6 @@ export default function CatchAllPage() {
                 <h1 className="select-none text-[150px] font-bold leading-none text-sb-border md:text-[200px]">
                     404
                 </h1>
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-24 w-24 items-center justify-center rounded-full bg-sb-active-bg">
-                        <svg
-                            className="h-12 w-12 text-sb-active"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={1.5}
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
-                            />
-                        </svg>
-                    </div>
-                </div>
             </div>
 
             <h2 className="mb-3 text-2xl font-semibold tracking-[-0.5px] text-sb-text-strong md:text-3xl">
