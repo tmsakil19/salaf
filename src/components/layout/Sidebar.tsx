@@ -2,9 +2,14 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { PanelLeftClose, ChevronDown, ChevronRight } from "lucide-react";
+import { PanelLeftClose, ChevronDown, ChevronRight, Menu } from "lucide-react";
 import { navigationSections } from "@/config/navigation";
 import { cn } from "@/lib/utils";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 function SidebarContent() {
   return (
@@ -75,6 +80,21 @@ function SidebarContent() {
         </div>
       </div>
     </div>
+  );
+}
+
+export function MobileSidebarTrigger() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <button className="flex h-10 w-10 items-center justify-center rounded-lg lg:hidden">
+          <Menu className="h-5 w-5 text-[#171717]" />
+        </button>
+      </SheetTrigger>
+      <SheetContent side="left" showCloseButton={false} className="w-68 p-0">
+        <SidebarContent />
+      </SheetContent>
+    </Sheet>
   );
 }
 

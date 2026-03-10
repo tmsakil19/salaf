@@ -29,7 +29,7 @@ export function TransactionsTable() {
   return (
     <div className="rounded-xl border border-[#ebebeb] bg-white shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-[#ebebeb] px-5 py-4">
+      <div className="flex items-center justify-between px-5 py-4">
         <h3 className="text-base font-medium text-[#171717]">
           Recent Transactions
         </h3>
@@ -37,16 +37,16 @@ export function TransactionsTable() {
       </div>
 
       {/* Filter tabs + Search + Date Range */}
-      <div className="flex items-center justify-between border-b border-[#ebebeb] px-5 py-3">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 border-t border-b border-[#ebebeb] px-5 py-3">
         {/* Segmented filter */}
-        <div className="flex items-center gap-0.5 rounded-lg bg-[#f7f7f7] p-0.5">
+        <div className="flex items-center gap-0.5 overflow-x-auto rounded-lg bg-[#f5f5f5] p-0.5">
           {filterTabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${activeTab === tab
-                  ? "bg-white text-[#171717] shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]"
-                  : "text-[#a3a3a3] hover:text-[#5c5c5c]"
+              className={`whitespace-nowrap rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${activeTab === tab
+                ? "bg-white text-[#171717] shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]"
+                : "text-[#a3a3a3] hover:text-[#5c5c5c]"
                 }`}
             >
               {tab}
@@ -61,7 +61,7 @@ export function TransactionsTable() {
             <input
               type="text"
               placeholder="Search..."
-              className="h-8 w-45 rounded-lg border border-[#ebebeb] bg-white pl-9 pr-10 text-sm text-[#171717] placeholder:text-[#a3a3a3] focus:outline-none focus:ring-1 focus:ring-[#335cff]"
+              className="h-9 w-55 rounded-lg border border-[#ebebeb] bg-white pl-9 pr-10 text-sm text-[#171717] placeholder:text-[#a3a3a3] focus:outline-none focus:ring-1 focus:ring-[#335cff]"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -69,88 +69,90 @@ export function TransactionsTable() {
               ⌘1
             </span>
           </div>
-          <button className="flex h-8 items-center gap-1.5 rounded-lg border border-[#ebebeb] px-3 text-xs font-medium text-[#5c5c5c]">
+          <button className="flex h-9 items-center gap-1.5 rounded-lg border border-[#ebebeb] px-3 text-sm font-medium text-[#5c5c5c]">
             <CalendarDays className="h-4 w-4" />
-            Date Range
+            <span className="hidden sm:inline">Date Range</span>
           </button>
         </div>
       </div>
 
       {/* Table */}
-      <table className="w-full">
-        <thead>
-          <tr className="border-b border-[#ebebeb]">
-            <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
-              Date
-            </th>
-            <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
-              References
-            </th>
-            <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
-              USD Amount
-            </th>
-            <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
-              Fill
-            </th>
-            <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
-              Status
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredTransactions.map((txn) => (
-            <tr
-              key={txn.id}
-              className="border-b border-[#ebebeb] last:border-b-0"
-            >
-              <td className="whitespace-nowrap px-5 py-3 text-sm text-[#5c5c5c]">
-                {new Date(txn.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </td>
-              <td className="px-5 py-3">
-                <div className="flex items-center gap-2">
-                  {txn.hasIcon && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f7f7]">
-                      <Building2 className="h-4 w-4 text-[#5c5c5c]" />
-                    </div>
-                  )}
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium text-[#171717]">
-                      {txn.reference}
-                    </span>
-                    <span className="text-xs text-[#a3a3a3]">
-                      {txn.referenceId}
-                    </span>
-                  </div>
-                </div>
-              </td>
-              <td className="px-5 py-3 text-sm font-medium text-[#171717]">
-                {txn.amount >= 0 ? "+" : ""}$
-                {Math.abs(txn.amount).toLocaleString("en-US", {
-                  minimumFractionDigits: 2,
-                })}
-              </td>
-              <td className="px-5 py-3 text-sm text-[#5c5c5c]">{txn.type}</td>
-              <td className="px-5 py-3">
-                <StatusBadge status={txn.status} />
-              </td>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[700px]">
+          <thead>
+            <tr className="border-b border-[#ebebeb]">
+              <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
+                Date
+              </th>
+              <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
+                References
+              </th>
+              <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
+                USD Amount
+              </th>
+              <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
+                Fill
+              </th>
+              <th className="px-5 py-3 text-left text-xs font-medium text-[#a3a3a3]">
+                Status
+              </th>
             </tr>
-          ))}
-          {filteredTransactions.length === 0 && (
-            <tr>
-              <td
-                colSpan={5}
-                className="px-5 py-8 text-center text-sm text-[#a3a3a3]"
+          </thead>
+          <tbody>
+            {filteredTransactions.map((txn) => (
+              <tr
+                key={txn.id}
+                className="border-b border-[#ebebeb] last:border-b-0"
               >
-                No transactions found.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+                <td className="whitespace-nowrap px-5 py-3 text-sm text-[#5c5c5c]">
+                  {new Date(txn.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </td>
+                <td className="px-5 py-3">
+                  <div className="flex items-center gap-2">
+                    {txn.hasIcon && (
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f7f7]">
+                        <Building2 className="h-4 w-4 text-[#5c5c5c]" />
+                      </div>
+                    )}
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-[#171717]">
+                        {txn.reference}
+                      </span>
+                      <span className="text-xs text-[#a3a3a3]">
+                        {txn.referenceId}
+                      </span>
+                    </div>
+                  </div>
+                </td>
+                <td className="px-5 py-3 text-sm font-medium text-[#171717]">
+                  {txn.amount >= 0 ? "+" : "-"} $
+                  {Math.abs(txn.amount).toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                  })}
+                </td>
+                <td className="px-5 py-3 text-sm text-[#5c5c5c]">{txn.type}</td>
+                <td className="px-5 py-3">
+                  <StatusBadge status={txn.status} />
+                </td>
+              </tr>
+            ))}
+            {filteredTransactions.length === 0 && (
+              <tr>
+                <td
+                  colSpan={5}
+                  className="px-5 py-8 text-center text-sm text-[#a3a3a3]"
+                >
+                  No transactions found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

@@ -9,49 +9,86 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { ChevronDown } from "lucide-react";
+import {
+  ChevronDown,
+  ArrowDownToLine,
+  ArrowUpFromLine,
+  ArrowUpCircle,
+  RotateCcw,
+} from "lucide-react";
 import { chartData } from "@/config/chartData";
 
 const spendStats = [
-  { label: "Deposits", value: "$12.6k", color: "#335cff" },
-  { label: "Top Ups", value: "$7.9k", color: "#6ee7b7" },
-  { label: "Withdrawals", value: "$8.3k", color: "#fb923c" },
-  { label: "Refunds", value: "$3.9k", color: "#fbbf24" },
+  {
+    label: "Deposits",
+    value: "$ 12.6k",
+    color: "#335cff",
+    bgColor: "bg-[rgba(51,92,255,0.1)]",
+    icon: ArrowDownToLine,
+    iconColor: "text-[#335cff]",
+  },
+  {
+    label: "Top Ups",
+    value: "$ 7.9k",
+    color: "#6ee7b7",
+    bgColor: "bg-[rgba(110,231,183,0.2)]",
+    icon: ArrowUpCircle,
+    iconColor: "text-[#10b981]",
+  },
+  {
+    label: "Withdrawals",
+    value: "$ 8.3k",
+    color: "#fb923c",
+    bgColor: "bg-[rgba(251,146,60,0.1)]",
+    icon: ArrowUpFromLine,
+    iconColor: "text-[#fb923c]",
+  },
+  {
+    label: "Refunds",
+    value: "$ 3.9k",
+    color: "#fbbf24",
+    bgColor: "bg-[rgba(251,191,36,0.1)]",
+    icon: RotateCcw,
+    iconColor: "text-[#fbbf24]",
+  },
 ];
 
 export function ActivityChart() {
   return (
     <div className="flex flex-col rounded-xl border border-[#ebebeb] bg-white shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
-      {/* Header */}
-      <div className="flex items-center justify-between border-b border-[#ebebeb] px-5 py-4">
-        <h3 className="text-base font-medium text-[#171717]">Spend</h3>
-        <button className="flex items-center gap-1 rounded-lg border border-[#ebebeb] px-3 py-1.5 text-xs font-medium text-[#5c5c5c]">
-          This Year
-          <ChevronDown className="h-4 w-4" />
-        </button>
-      </div>
-
-      {/* Stats row */}
-      <div className="grid grid-cols-4 border-b border-[#ebebeb]">
-        {spendStats.map((stat) => (
-          <div key={stat.label} className="flex items-center gap-2 px-5 py-3">
-            <span
-              className="h-1.5 w-1.5 rounded-full"
-              style={{ backgroundColor: stat.color }}
-            />
-            <div className="flex flex-col">
-              <span className="text-xs text-[#a3a3a3]">{stat.label}</span>
-              <span className="text-lg font-semibold leading-6 text-[#171717]">
-                {stat.value}
-              </span>
-            </div>
+      {/* Stats grid + This Year button */}
+      <div className="px-6 pt-6">
+        <div className="flex items-start justify-between">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+            {spendStats.map((stat) => {
+              const Icon = stat.icon;
+              return (
+                <div key={stat.label} className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1.5">
+                    <span
+                      className={`flex h-6 w-6 items-center justify-center rounded-full ${stat.bgColor}`}
+                    >
+                      <Icon className={`h-3.5 w-3.5 ${stat.iconColor}`} />
+                    </span>
+                    <span className="text-sm text-[#5c5c5c]">{stat.label}</span>
+                  </div>
+                  <span className="text-2xl font-semibold leading-8 text-[#171717]">
+                    {stat.value}
+                  </span>
+                </div>
+              );
+            })}
           </div>
-        ))}
+          <button className="flex items-center gap-1 rounded-lg border border-[#ebebeb] px-4 py-2 text-sm font-medium text-[#5c5c5c]">
+            This Year
+            <ChevronDown className="h-5 w-5" />
+          </button>
+        </div>
       </div>
 
       {/* Chart */}
-      <div className="px-5 py-4">
-        <div className="h-55 w-full">
+      <div className="px-4 pb-4 pt-4">
+        <div className="h-44 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={chartData}

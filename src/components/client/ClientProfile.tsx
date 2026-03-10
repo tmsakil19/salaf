@@ -17,7 +17,7 @@ interface ClientProfileProps {
 
 export function ClientProfile({ client }: ClientProfileProps) {
   return (
-    <div className="rounded-lg border border-[#ebebeb] bg-[#f7f7f7] p-5">
+    <div className="rounded-xl border border-[#ebebeb] bg-[#f7f7f7] p-5">
       {/* Top row: Avatar, Name, Badges, More button */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-4">
@@ -35,8 +35,8 @@ export function ClientProfile({ client }: ClientProfileProps) {
           </div>
           {/* Name & Badges */}
           <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-7.5">
-              <h2 className="text-2xl font-medium leading-6 tracking-[-0.36px] text-[#171717]">
+            <div className="flex flex-wrap items-center gap-3 md:gap-7.5">
+              <h2 className="text-xl md:text-2xl font-medium leading-6 tracking-[-0.36px] text-[#171717]">
                 {client.name}
               </h2>
               <div className="flex items-center gap-2">
@@ -74,7 +74,7 @@ export function ClientProfile({ client }: ClientProfileProps) {
       {/* Contact info row */}
       <div className="mt-5 flex flex-wrap gap-3">
         {/* Phone */}
-        <div className="flex items-center justify-between rounded-xl bg-white p-3 w-72.5">
+        <div className="flex items-center justify-between rounded-xl bg-white p-3 w-full sm:w-auto sm:min-w-[280px]">
           <div className="flex items-center gap-2">
             <Phone className="h-6 w-6 text-[#25d366]" />
             <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
@@ -92,7 +92,7 @@ export function ClientProfile({ client }: ClientProfileProps) {
         </div>
 
         {/* Website */}
-        <div className="flex items-center justify-between rounded-xl bg-white p-3 w-81.5">
+        <div className="flex items-center justify-between rounded-xl bg-white p-3 w-full sm:w-auto sm:min-w-[320px]">
           <div className="flex items-center gap-2">
             <LinkIcon className="h-6 w-6 text-[#171717]" />
             <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">

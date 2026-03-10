@@ -26,7 +26,7 @@ export default function RootLayout({
         <Sidebar />
         <div className="min-h-screen lg:pl-68">
           <Header />
-          <main className="px-8 py-6">{children}</main>
+          <main className="px-4 py-6 md:px-8">{children}</main>
         </div>
       </body>
     </html>

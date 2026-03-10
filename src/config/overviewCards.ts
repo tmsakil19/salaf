@@ -10,7 +10,8 @@ export const overviewCards: OverviewCardData[] = [
   {
     id: "wallet-balance",
     title: "Wallet Balance",
-    value: "$6.2k",
+    value: "$ 6.2k",
+    subtitle: "Last deposit: 13 Mar 2025",
     icon: Wallet,
     iconColor: "text-[#335cff]",
     iconBg: "bg-[rgba(71,108,255,0.1)]",
@@ -18,8 +19,8 @@ export const overviewCards: OverviewCardData[] = [
   {
     id: "usd-rate",
     title: "Current USD Rate",
-    value: "৳123.50",
-    subtitle: "Updated today",
+    value: "৳ 123.50",
+    subtitle: "Expires on: 31 Jan 2025",
     icon: DollarSign,
     iconColor: "text-[#335cff]",
     iconBg: "bg-[rgba(71,108,255,0.1)]",
@@ -27,7 +28,8 @@ export const overviewCards: OverviewCardData[] = [
   {
     id: "ad-balance",
     title: "Ad Acc. Balance",
-    value: "$0.5k",
+    value: "$ 0.5k",
+    subtitle: "Including Closed Accounts",
     icon: BarChart3,
     iconColor: "text-[#335cff]",
     iconBg: "bg-[rgba(71,108,255,0.1)]",
@@ -36,6 +38,7 @@ export const overviewCards: OverviewCardData[] = [
     id: "active-ad-accounts",
     title: "Active Ad Acc.",
     value: "42",
+    subtitle: "40 accounts in total",
     icon: Activity,
     iconColor: "text-[#335cff]",
     iconBg: "bg-[rgba(71,108,255,0.1)]",
