@@ -11,8 +11,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "qCommerz - Client Management",
-  description: "qCommerz client management dashboard",
+  title: "Salaf Dashboard",
+  description: "A modern dashboard for managing clients, projects, and tasks efficiently.",
 };
 
 export default function RootLayout({

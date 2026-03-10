@@ -107,7 +107,7 @@ function SidebarContent({ collapsed, onToggle }: { collapsed: boolean; onToggle:
           collapsed && "justify-center px-0"
         )}>
           <Image
-            src="/images/user2.png"
+            src="/images/user1.png"
             alt="Super Admin"
             width={40}
             height={40}
