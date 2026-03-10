@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CatchAllPage() {
     return (
-        <div className="flex min-h-[80vh] flex-col items-center justify-center px-4 text-center">
+        <div className="flex min-h-[80vh] flex-col items-center justify-center px-4 text-center h-full">
             <div className="relative mb-8">
                 <h1 className="select-none text-[150px] font-bold leading-none text-sb-border md:text-[200px]">
                     404

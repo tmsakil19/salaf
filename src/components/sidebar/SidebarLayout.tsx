@@ -31,7 +31,7 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
                 {/* Main content wrapper */}
                 <div
                     className={cn(
-                        "min-h-screen flex-1 transition-all duration-300 ease-in-out",
+                        "min-h-screen flex-1 transition-all bg-[#FAFAFA] duration-300 ease-in-out",
                         collapsed ? "lg:pl-18" : "lg:pl-68"
                     )}
                 >

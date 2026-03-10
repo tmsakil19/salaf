@@ -3,7 +3,7 @@ import type { ClientProfile } from "@/interfaces/client.interface";
 export const clientData: ClientProfile = {
   id: "CLT-001",
   name: "Arthur Taylor",
-  avatar: "/images/user1.png",
+  avatar: "/images/user2.png",
   company: "Walton Bangladesh",
   tags: [
     { label: "Ad Agency", variant: "destructive" },
