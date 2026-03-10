@@ -1,9 +1,9 @@
-import { type LucideIcon } from "lucide-react";
+import { type IconSvgElement } from "@hugeicons/react";
 
 export interface NavItem {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: IconSvgElement;
   active?: boolean;
   hasSubmenu?: boolean;
 }

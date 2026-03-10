@@ -3,7 +3,6 @@
 import { createContext, useContext, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PanelLeftClose, PanelLeftOpen, ChevronDown, ChevronRight, Menu } from "lucide-react";
 import { navigationSections } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -11,6 +10,8 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ArrowDown01Icon, ArrowRight01Icon, Menu01Icon, SidebarLeft01Icon, SidebarRight01Icon } from "@hugeicons/core-free-icons";
+import { Icon } from "../ui/icon";
 
 // Context for sidebar collapsed state
 const SidebarContext = createContext<{
@@ -36,7 +37,7 @@ function SidebarNav({ collapsed }: { collapsed: boolean }) {
             {collapsed && <div className="mb-2 border-t border-[#ebebeb]" />}
             <div className="space-y-1">
               {section.items.map((item) => {
-                const Icon = item.icon;
+
                 return (
                   <Link
                     key={item.label}
@@ -55,11 +56,11 @@ function SidebarNav({ collapsed }: { collapsed: boolean }) {
                       <span className="absolute -left-5 top-2 h-5 w-1 rounded-r bg-[#335cff]" />
                     )}
                     <div className={cn("flex items-center gap-2.5", collapsed && "gap-0")}>
-                      <Icon className="h-5 w-5 shrink-0" />
+                      <Icon icon={item?.icon} className="h-5 w-5 shrink-0" />
                       {!collapsed && <span>{item.label}</span>}
                     </div>
                     {!collapsed && item.hasSubmenu && (
-                      <ChevronDown className="h-5 w-5 text-[#a3a3a3]" />
+                      <Icon icon={ArrowDown01Icon} className="h-5 w-5 text-[#a3a3a3]" />
                     )}
                   </Link>
                 );
@@ -85,14 +86,14 @@ function SidebarContent({ collapsed, onToggle }: { collapsed: boolean; onToggle:
         <button
           onClick={onToggle}
           className={cn(
-            "flex h-6 w-6 items-center justify-center text-[#5c5c5c] hover:text-[#171717] transition-colors",
+            "flex h-6 w-6 items-center justify-center text-[#5c5c5c] hover:text-[#171717] transition-colors cursor-pointer",
             collapsed && "mx-auto"
           )}
         >
           {collapsed ? (
-            <PanelLeftOpen className="h-5 w-5" />
+            <Icon icon={SidebarRight01Icon} className="size-5" />
           ) : (
-            <PanelLeftClose className="h-5 w-5" />
+            <Icon icon={SidebarLeft01Icon} className="size-5" />
           )}
         </button>
       </div>
@@ -119,7 +120,7 @@ function SidebarContent({ collapsed, onToggle }: { collapsed: boolean; onToggle:
                 <p className="text-sm font-medium text-[#171717] tracking-[-0.084px] truncate">Super Admin</p>
                 <p className="text-xs text-[#5c5c5c] truncate">super@admin.com</p>
               </div>
-              <ChevronRight className="h-5 w-5 shrink-0 text-[#a3a3a3]" />
+              <Icon icon={ArrowRight01Icon} className="h-5 w-5 shrink-0 text-[#a3a3a3]" />
             </>
           )}
         </div>
@@ -133,7 +134,7 @@ export function MobileSidebarTrigger() {
     <Sheet>
       <SheetTrigger asChild>
         <button className="flex h-10 w-10 items-center justify-center rounded-lg lg:hidden">
-          <Menu className="h-5 w-5 text-[#171717]" />
+          <Icon icon={Menu01Icon} className="h-5 w-5 text-[#171717]" />
         </button>
       </SheetTrigger>
       <SheetContent side="left" showCloseButton={false} className="w-68 p-0">
