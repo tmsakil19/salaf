@@ -16,6 +16,8 @@
   --color-primary-base: var(--primary-base);
   --color-primary-lighter: var(--primary-lighter);
   --color-state-danger: var(--state-danger);
+  --color-state-error: var(--state-error);
+  --color-state-warning: var(--state-warning);
   --color-sb-bg: var(--sb-bg);
   --color-sb-border: var(--sb-border);
   --color-sb-text-muted: var(--sb-text-muted);
@@ -66,7 +68,7 @@
 
 :root {
   --bg-white: #ffffff;
-  --bg-weak: #fafafa;
+  --bg-weak: #f7f7f7;
   --text-strong: #171717;
   --text-sub: #5c5c5c;
   --text-soft: #a3a3a3;
@@ -74,6 +76,8 @@
   --primary-base: #335cff;
   --primary-lighter: #ebf1ff;
   --state-danger: #ef4444;
+  --state-error: #fb3748;
+  --state-warning: #fa7319;
   --sb-bg: #ffffff;
   --sb-border: #ebebeb;
   --sb-text-muted: #a3a3a3;
