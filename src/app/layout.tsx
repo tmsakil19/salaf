@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import { Sidebar } from "@/components/layout/Sidebar";
+import { SidebarProvider } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 
 const outfit = Outfit({
@@ -23,11 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable} antialiased font-(family-name:--font-outfit)`}>
-        <Sidebar />
-        <div className="min-h-screen lg:pl-68">
+        <SidebarProvider>
           <Header />
           <main className="px-4 py-6 md:px-8">{children}</main>
-        </div>
+        </SidebarProvider>
       </body>
     </html>
   );
