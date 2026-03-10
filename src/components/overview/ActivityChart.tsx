@@ -9,14 +9,16 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import {
-  ChevronDown,
-  ArrowDownToLine,
-  ArrowUpFromLine,
-  ArrowUpCircle,
-  RotateCcw,
-} from "lucide-react";
+// import {
+//   ChevronDown,
+//   ArrowDownToLine,
+//   ArrowUpFromLine,
+//   ArrowUpCircle,
+//   RotateCcw,
+// } from "lucide-react";
 import { chartData } from "@/config/chartData";
+import { ArrowDown01Icon, Money01Icon, MoneyReceiveFlow01Icon, ReverseWithdrawal01Icon, SaveMoneyDollarIcon } from "@hugeicons/core-free-icons";
+import { Icon } from "../ui/icon";
 
 const spendStats = [
   {
@@ -24,7 +26,7 @@ const spendStats = [
     value: "$ 12.6k",
     color: "#335cff",
     bgColor: "bg-[rgba(51,92,255,0.1)]",
-    icon: ArrowDownToLine,
+    icon: Money01Icon,
     iconColor: "text-[#335cff]",
   },
   {
@@ -32,7 +34,7 @@ const spendStats = [
     value: "$ 7.9k",
     color: "#6ee7b7",
     bgColor: "bg-[rgba(110,231,183,0.2)]",
-    icon: ArrowUpCircle,
+    icon: MoneyReceiveFlow01Icon,
     iconColor: "text-[#10b981]",
   },
   {
@@ -40,7 +42,7 @@ const spendStats = [
     value: "$ 8.3k",
     color: "#fb923c",
     bgColor: "bg-[rgba(251,146,60,0.1)]",
-    icon: ArrowUpFromLine,
+    icon: ReverseWithdrawal01Icon,
     iconColor: "text-[#fb923c]",
   },
   {
@@ -48,7 +50,7 @@ const spendStats = [
     value: "$ 3.9k",
     color: "#fbbf24",
     bgColor: "bg-[rgba(251,191,36,0.1)]",
-    icon: RotateCcw,
+    icon: SaveMoneyDollarIcon,
     iconColor: "text-[#fbbf24]",
   },
 ];
@@ -61,14 +63,14 @@ export function ActivityChart() {
         <div className="flex items-start justify-between">
           <div className="grid grid-cols-2 gap-x-6 gap-y-4">
             {spendStats.map((stat) => {
-              const Icon = stat.icon;
+
               return (
                 <div key={stat.label} className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5">
                     <span
                       className={`flex h-6 w-6 items-center justify-center rounded-full ${stat.bgColor}`}
                     >
-                      <Icon className={`h-3.5 w-3.5 ${stat.iconColor}`} />
+                      <Icon icon={stat.icon} className={`h-3.5 w-3.5 ${stat.iconColor}`} />
                     </span>
                     <span className="text-sm text-[#5c5c5c]">{stat.label}</span>
                   </div>
@@ -81,7 +83,7 @@ export function ActivityChart() {
           </div>
           <button className="flex items-center gap-1 rounded-lg border border-[#ebebeb] px-4 py-2 text-sm font-medium text-[#5c5c5c]">
             This Year
-            <ChevronDown className="h-5 w-5" />
+            <Icon icon={ArrowDown01Icon} className="h-5 w-5" />
           </button>
         </div>
       </div>
