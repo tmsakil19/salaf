@@ -1,11 +1,9 @@
-import { type LucideIcon } from "lucide-react";
+import type { IconSvgElement } from "@hugeicons/react";
 
 export interface OverviewCardData {
   id: string;
   title: string;
   value: string;
   subtitle?: string;
-  icon: LucideIcon;
-  iconColor: string;
-  iconBg: string;
+  icon: IconSvgElement;
 }

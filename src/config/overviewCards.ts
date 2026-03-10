@@ -1,9 +1,4 @@
-import {
-  Wallet,
-  DollarSign,
-  BarChart3,
-  Activity,
-} from "lucide-react";
+import { DollarCircleIcon } from "@hugeicons/core-free-icons";
 import type { OverviewCardData } from "@/interfaces/overviewCard.interface";
 
 export const overviewCards: OverviewCardData[] = [
@@ -12,35 +7,27 @@ export const overviewCards: OverviewCardData[] = [
     title: "Wallet Balance",
     value: "$ 6.2k",
     subtitle: "Last deposit: 13 Mar 2025",
-    icon: Wallet,
-    iconColor: "text-[#335cff]",
-    iconBg: "bg-[rgba(71,108,255,0.1)]",
+    icon: DollarCircleIcon,
   },
   {
     id: "usd-rate",
     title: "Current USD Rate",
     value: "৳ 123.50",
     subtitle: "Expires on: 31 Jan 2025",
-    icon: DollarSign,
-    iconColor: "text-[#335cff]",
-    iconBg: "bg-[rgba(71,108,255,0.1)]",
+    icon: DollarCircleIcon,
   },
   {
     id: "ad-balance",
     title: "Ad Acc. Balance",
     value: "$ 0.5k",
     subtitle: "Including Closed Accounts",
-    icon: BarChart3,
-    iconColor: "text-[#335cff]",
-    iconBg: "bg-[rgba(71,108,255,0.1)]",
+    icon: DollarCircleIcon,
   },
   {
     id: "active-ad-accounts",
     title: "Active Ad Acc.",
     value: "42",
     subtitle: "40 accounts in total",
-    icon: Activity,
-    iconColor: "text-[#335cff]",
-    iconBg: "bg-[rgba(71,108,255,0.1)]",
+    icon: DollarCircleIcon,
   },
 ];
