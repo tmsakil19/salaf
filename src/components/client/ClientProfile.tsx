@@ -1,15 +1,7 @@
 import Image from "next/image";
-import {
-  MapPin,
-  Copy,
-  ExternalLink,
-  ChevronDown,
-  MoreHorizontal,
-  Phone,
-  Link as LinkIcon,
-  DollarSign,
-} from "lucide-react";
 import type { ClientProfile as ClientProfileType } from "@/interfaces/client.interface";
+import { Icon } from "../ui/icon";
+import { ArrowDown01Icon, Copy01Icon, Link01Icon, Location05Icon, Money04Icon, MoreHorizontalIcon, WhatsappIcon } from "@hugeicons/core-free-icons";
 
 interface ClientProfileProps {
   client: ClientProfileType;
@@ -54,7 +46,7 @@ export function ClientProfile({ client }: ClientProfileProps) {
                       className="inline-flex items-center gap-1 rounded-full border border-[#fa7319] px-2.5 py-0.5 text-[11px] font-medium uppercase leading-3 tracking-[0.22px] text-[#fa7319]"
                     >
                       {tag.label}
-                      <ChevronDown className="h-4 w-4" />
+                      <Icon icon={ArrowDown01Icon} className="h-4 w-4" />
                     </span>
                   )
                 )}
@@ -67,7 +59,7 @@ export function ClientProfile({ client }: ClientProfileProps) {
         </div>
         {/* More button */}
         <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#ebebeb] bg-white shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
-          <MoreHorizontal className="h-5 w-5 text-[#171717]" />
+          <Icon icon={MoreHorizontalIcon} className="h-5 w-5 text-[#171717]" />
         </button>
       </div>
 
@@ -76,14 +68,14 @@ export function ClientProfile({ client }: ClientProfileProps) {
         {/* Phone */}
         <div className="flex items-center justify-between rounded-xl bg-white p-3 w-full sm:w-auto sm:min-w-[280px]">
           <div className="flex items-center gap-2">
-            <Phone className="h-6 w-6 text-[#25d366]" />
+            <Icon icon={WhatsappIcon} className="size-6" />
             <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
               {client.contact.phone}
             </span>
           </div>
           <div className="flex items-center gap-1.5">
             <button className="flex h-7 w-8 items-center justify-center rounded-lg bg-[#f7f7f7]">
-              <Copy className="h-5 w-5 text-[#5c5c5c]" />
+              <Icon icon={Copy01Icon} className="size-5 text-[#5c5c5c]" />
             </button>
             <button className="flex h-7 items-center gap-1 rounded-lg bg-[#f7f7f7] px-2">
               <span className="text-sm font-medium text-[#5c5c5c]">Chat</span>
@@ -94,17 +86,16 @@ export function ClientProfile({ client }: ClientProfileProps) {
         {/* Website */}
         <div className="flex items-center justify-between rounded-xl bg-white p-3 w-full sm:w-auto sm:min-w-[320px]">
           <div className="flex items-center gap-2">
-            <LinkIcon className="h-6 w-6 text-[#171717]" />
+            <Icon icon={Link01Icon} className="h-6 w-6 text-[#171717]" />
             <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
               {client.contact.website}
             </span>
           </div>
           <div className="flex items-center gap-1.5">
             <button className="flex h-7 w-8 items-center justify-center rounded-lg bg-[#f7f7f7]">
-              <Copy className="h-5 w-5 text-[#5c5c5c]" />
+              <Icon icon={Copy01Icon} className="size-5 text-[#5c5c5c]" />
             </button>
             <button className="flex h-7 items-center gap-1 rounded-lg bg-[#f7f7f7] px-2">
-              <ExternalLink className="h-4 w-4 text-[#5c5c5c]" />
               <span className="text-sm font-medium text-[#5c5c5c]">Visit</span>
             </button>
           </div>
@@ -113,7 +104,7 @@ export function ClientProfile({ client }: ClientProfileProps) {
         {/* Location */}
         <div className="flex items-center rounded-xl bg-white p-3">
           <div className="flex items-center gap-2">
-            <MapPin className="h-6 w-6 text-[#171717]" />
+            <Icon icon={Location05Icon} className="h-6 w-6 text-[#171717]" />
             <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
               {client.contact.location}
             </span>
@@ -123,15 +114,14 @@ export function ClientProfile({ client }: ClientProfileProps) {
         {/* Currency */}
         <div className="flex items-center justify-between rounded-xl bg-white p-3">
           <div className="flex items-center gap-2">
-            <DollarSign className="h-6 w-6 text-[#171717]" />
+            <Icon icon={Money04Icon} className="h-6 w-6 text-[#171717]" />
             <span className="text-sm font-medium tracking-[-0.084px] text-[#171717]">
               Currency
             </span>
           </div>
           <div className="ml-4 flex items-center gap-2">
-            <span className="inline-flex h-5 w-5 items-center justify-center overflow-hidden rounded-full">
-              🇧🇩
-            </span>
+
+            <Image src={"/images/bd.png"} alt="BD Flag" width={20} height={20} />
             <span className="text-sm font-medium text-[#171717]">
               {client.contact.currency}
             </span>
