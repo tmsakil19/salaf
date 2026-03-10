@@ -19,6 +19,12 @@
   --color-state-danger: var(--state-danger);
   --color-state-error: var(--state-error);
   --color-state-warning: var(--state-warning);
+  --color-chart-green: var(--chart-green);
+  --color-chart-green-light: var(--chart-green-light);
+  --color-chart-pink: var(--chart-pink);
+  --color-chart-pink-light: var(--chart-pink-light);
+  --color-chart-red-light: var(--chart-red-light);
+  --color-chart-axis: var(--chart-axis);
   --color-sb-bg: var(--sb-bg);
   --color-sb-border: var(--sb-border);
   --color-sb-text-muted: var(--sb-text-muted);
@@ -80,6 +86,12 @@
   --state-danger: #ef4444;
   --state-error: #fb3748;
   --state-warning: #fa7319;
+  --chart-green: #1fc16b;
+  --chart-green-light: #e0faec;
+  --chart-pink: #fb4ba3;
+  --chart-pink-light: #feebf4;
+  --chart-red-light: #feecee;
+  --chart-axis: #788393;
   --sb-bg: #ffffff;
   --sb-border: #ebebeb;
   --sb-text-muted: #a3a3a3;

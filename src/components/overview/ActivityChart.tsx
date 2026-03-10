@@ -9,108 +9,102 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-// import {
-//   ChevronDown,
-//   ArrowDownToLine,
-//   ArrowUpFromLine,
-//   ArrowUpCircle,
-//   RotateCcw,
-// } from "lucide-react";
 import { chartData } from "@/config/chartData";
 import { ArrowDown01Icon, Money01Icon, MoneyReceiveFlow01Icon, ReverseWithdrawal01Icon, SaveMoneyDollarIcon } from "@hugeicons/core-free-icons";
 import { Icon } from "../ui/icon";
+import { Button } from "../ui/button";
 
 const spendStats = [
   {
     label: "Deposits",
     value: "$ 12.6k",
-    color: "#335cff",
-    bgColor: "bg-[rgba(51,92,255,0.1)]",
+    bgColor: "bg-chart-green-light",
     icon: Money01Icon,
-    iconColor: "text-[#335cff]",
+    iconColor: "text-chart-green",
   },
   {
     label: "Top Ups",
     value: "$ 7.9k",
-    color: "#6ee7b7",
-    bgColor: "bg-[rgba(110,231,183,0.2)]",
+    bgColor: "bg-primary-lighter",
     icon: MoneyReceiveFlow01Icon,
-    iconColor: "text-[#10b981]",
+    iconColor: "text-primary-base",
   },
   {
     label: "Withdrawals",
     value: "$ 8.3k",
-    color: "#fb923c",
-    bgColor: "bg-[rgba(251,146,60,0.1)]",
+    bgColor: "bg-chart-pink-light",
     icon: ReverseWithdrawal01Icon,
-    iconColor: "text-[#fb923c]",
+    iconColor: "text-chart-pink",
   },
   {
     label: "Refunds",
     value: "$ 3.9k",
-    color: "#fbbf24",
-    bgColor: "bg-[rgba(251,191,36,0.1)]",
+    bgColor: "bg-chart-red-light",
     icon: SaveMoneyDollarIcon,
-    iconColor: "text-[#fbbf24]",
+    iconColor: "text-state-error",
   },
 ];
 
 export function ActivityChart() {
   return (
-    <div className="flex flex-col rounded-xl border border-[#ebebeb] bg-white shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
+    <div className="flex flex-col gap-[15px] rounded-xl border border-stroke-soft bg-bg-white py-6 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
       {/* Stats grid + This Year button */}
-      <div className="px-6 pt-6">
+      <div className="px-6">
         <div className="flex items-start justify-between">
           <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-            {spendStats.map((stat) => {
-              return (
-                <div key={stat.label} className="flex flex-col gap-1">
-                  <div className="flex items-center gap-1.5">
-                    <span
-                      className={`flex h-6 w-6 items-center justify-center rounded-full ${stat.bgColor}`}
-                    >
-                      <Icon icon={stat.icon} className={`h-3.5 w-3.5 ${stat.iconColor}`} />
-                    </span>
-                    <span className="text-sm text-[#5c5c5c]">{stat.label}</span>
-                  </div>
-                  <span className="text-2xl font-semibold leading-8 text-[#171717]">
-                    {stat.value}
+            {spendStats.map((stat) => (
+              <div key={stat.label} className="flex flex-col gap-1">
+                <div className="flex items-center gap-1">
+                  <span
+                    className={`flex size-6 items-center justify-center rounded-full ${stat.bgColor}`}
+                  >
+                    <Icon icon={stat.icon} className={`size-3.5 ${stat.iconColor}`} />
+                  </span>
+                  <span className="text-base leading-6 tracking-[-0.176px] text-text-sub">
+                    {stat.label}
                   </span>
                 </div>
-              );
-            })}
+                <span className="text-2xl font-medium leading-8 tracking-[-0.36px] text-text-strong">
+                  {stat.value}
+                </span>
+              </div>
+            ))}
           </div>
-          <button className="flex items-center gap-1 rounded-lg border border-[#ebebeb] px-4 py-2 text-sm font-medium text-[#5c5c5c]">
+          <Button
+            variant="outline"
+            className="h-auto gap-2 rounded-xl border-stroke-soft px-4 py-2 text-sm font-medium leading-5 tracking-[-0.084px] text-text-sub hover:bg-bg-weak hover:text-text-sub"
+          >
             This Year
-            <Icon icon={ArrowDown01Icon} className="h-5 w-5" />
-          </button>
+            <Icon icon={ArrowDown01Icon} className="size-5" />
+          </Button>
         </div>
       </div>
 
       {/* Chart */}
-      <div className="px-4 pb-4 pt-4">
+      <div className="px-4">
         <div className="h-44 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={chartData}
               margin={{ top: 5, right: 0, left: -20, bottom: 0 }}
               barCategoryGap="20%"
+              barGap={2}
             >
               <CartesianGrid
                 strokeDasharray="3 3"
                 vertical={false}
-                stroke="#ebebeb"
+                stroke="var(--stroke-soft)"
               />
               <XAxis
                 dataKey="month"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fontSize: 11, fill: "#a3a3a3" }}
+                tick={{ fontSize: 12, fill: "var(--chart-axis)" }}
               />
               <YAxis
                 axisLine={false}
                 tickLine={false}
-                tick={{ fontSize: 11, fill: "#a3a3a3" }}
+                tick={{ fontSize: 12, fill: "var(--chart-axis)" }}
                 tickFormatter={(value: number) =>
                   `$${(value / 1000).toFixed(0)}k`
                 }
@@ -122,7 +116,7 @@ export function ActivityChart() {
                 ]}
                 contentStyle={{
                   borderRadius: "8px",
-                  border: "1px solid #ebebeb",
+                  border: "1px solid var(--stroke-soft)",
                   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
                   fontSize: "12px",
                 }}
@@ -130,30 +124,30 @@ export function ActivityChart() {
               <Bar
                 dataKey="deposits"
                 name="Deposits"
-                fill="#335cff"
-                radius={[3, 3, 0, 0]}
-                barSize={8}
+                fill="var(--chart-green)"
+                radius={[8, 8, 0, 0]}
+                barSize={6}
               />
               <Bar
                 dataKey="topUps"
                 name="Top Ups"
-                fill="#6ee7b7"
-                radius={[3, 3, 0, 0]}
-                barSize={8}
+                fill="var(--primary-base)"
+                radius={[8, 8, 0, 0]}
+                barSize={6}
               />
               <Bar
                 dataKey="withdrawals"
                 name="Withdrawals"
-                fill="#fb923c"
-                radius={[3, 3, 0, 0]}
-                barSize={8}
+                fill="var(--chart-pink)"
+                radius={[8, 8, 0, 0]}
+                barSize={6}
               />
               <Bar
                 dataKey="refunds"
                 name="Refunds"
-                fill="#fbbf24"
-                radius={[3, 3, 0, 0]}
-                barSize={8}
+                fill="var(--state-error)"
+                radius={[8, 8, 0, 0]}
+                barSize={6}
               />
             </BarChart>
           </ResponsiveContainer>
