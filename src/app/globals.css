@@ -7,6 +7,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-sb-bg: var(--sb-bg);
+  --color-sb-border: var(--sb-border);
+  --color-sb-text-muted: var(--sb-text-muted);
+  --color-sb-text-sub: var(--sb-text-sub);
+  --color-sb-text-strong: var(--sb-text-strong);
+  --color-sb-active-bg: var(--sb-active-bg);
+  --color-sb-active: var(--sb-active);
+  --color-sb-hover: var(--sb-hover);
   --font-sans: var(--font-outfit);
   --font-mono: var(--font-outfit);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -48,6 +56,14 @@
 }
 
 :root {
+  --sb-bg: #ffffff;
+  --sb-border: #ebebeb;
+  --sb-text-muted: #a3a3a3;
+  --sb-text-sub: #5c5c5c;
+  --sb-text-strong: #171717;
+  --sb-active-bg: #ebf1ff;
+  --sb-active: #335cff;
+  --sb-hover: #f7f7f7;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

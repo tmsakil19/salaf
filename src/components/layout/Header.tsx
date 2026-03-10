@@ -2,7 +2,7 @@
 
 import { Search, Bell, ChevronDown, UserRound } from "lucide-react";
 import Image from "next/image";
-import { MobileSidebarTrigger } from "@/components/layout/Sidebar";
+import { MobileSidebarTrigger } from "@/components/sidebar";
 
 export function Header() {
   return (
