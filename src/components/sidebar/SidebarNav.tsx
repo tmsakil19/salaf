@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { navigationSections } from "@/config/navigation";
 import { SidebarNavSection } from "./SidebarNavSection";
 
@@ -9,7 +10,7 @@ interface SidebarNavProps {
 
 export function SidebarNav({ collapsed }: SidebarNavProps) {
     return (
-        <div className="flex-1 overflow-y-auto px-5 pt-5 pb-4">
+        <div className={cn("flex-1 overflow-y-auto pt-5 pb-4 transition-all duration-300 ease-in-out", collapsed ? "px-2" : "px-5")}>
             <div className="space-y-5">
                 {navigationSections.map((section) => (
                     <SidebarNavSection

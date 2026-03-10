@@ -17,7 +17,7 @@ export const navigationSections: NavSection[] = [
   {
     title: "Manage",
     items: [
-      { label: "Clients", href: "/clients/CLT-001", icon: UserGroup03Icon, active: true },
+      { label: "Clients", href: "/clients/CLT-001", icon: UserGroup03Icon },
       { label: "Credits", href: "/credits", icon: HandCoinsIcon },
       { label: "Vendors", href: "/vendors", icon: BriefcaseDollarIcon },
       { label: "Banks", href: "/banks", icon: BankIcon, hasSubmenu: true },
