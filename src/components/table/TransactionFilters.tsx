@@ -1,8 +1,10 @@
 "use client";
 
-import { Search, CalendarDays, ChevronDown } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Icon } from "../ui/icon";
+import { Calendar02Icon } from "@hugeicons/core-free-icons";
 
 interface TransactionFiltersProps {
     activeTab: string;
@@ -65,13 +67,13 @@ export function TransactionFilters({
                 </div>
 
                 {/* Date Range */}
-                <button className="flex items-center gap-2 rounded-lg border border-stroke-soft bg-bg-white py-2 pl-2.5 pr-2 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
-                    <CalendarDays className="size-5 shrink-0 text-text-sub" />
+                <Button variant={"ghost"} className="flex items-center gap-2 rounded-lg border border-stroke-soft bg-bg-white py-2 pl-2.5 pr-2 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)] hover:bg-gray-50 font-normal">
+                    <Icon icon={Calendar02Icon} className="size-5 shrink-0 text-text-soft" />
                     <span className="hidden whitespace-nowrap text-sm leading-5 tracking-[-0.084px] text-text-sub sm:inline">
                         Date Range
                     </span>
-                    <ChevronDown className="size-5 shrink-0 text-text-sub" />
-                </button>
+                    <ChevronDown className="size-5 shrink-0 text-text-soft" />
+                </Button>
             </div>
         </div>
     );
