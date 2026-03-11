@@ -63,7 +63,7 @@ export default function ClientDetailsPage() {
           </div>
 
           {/* Transactions Table */}
-          {/* <TransactionsTable /> */}
+          <TransactionsTable />
         </div>
       )}
 

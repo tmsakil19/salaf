@@ -5,6 +5,7 @@ import { Search, CalendarDays, Building2 } from "lucide-react";
 import { StatusBadge } from "@/components/table/StatusBadge";
 import { transactions } from "@/config/transactions";
 import type { Transaction } from "@/interfaces/transaction.interface";
+import { Button } from "../ui/button";
 
 const filterTabs = [
   "Balance Sheet",
@@ -41,7 +42,8 @@ export function TransactionsTable() {
         {/* Segmented filter */}
         <div className="flex items-center gap-0.5 overflow-x-auto rounded-lg bg-[#f5f5f5] p-0.5">
           {filterTabs.map((tab) => (
-            <button
+            <Button
+              variant={"ghost"}
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`whitespace-nowrap rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${activeTab === tab
@@ -50,7 +52,7 @@ export function TransactionsTable() {
                 }`}
             >
               {tab}
-            </button>
+            </Button>
           ))}
         </div>
 
