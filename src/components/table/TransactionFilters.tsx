@@ -29,9 +29,9 @@ export function TransactionFilters({
     onSearchChange,
 }: TransactionFiltersProps) {
     return (
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col flex-wrap gap-3 lg:flex-row lg:items-center lg:justify-between">
             {/* Segmented Control */}
-            <div className="flex items-start gap-1 overflow-x-auto rounded-[10px] border border-stroke-soft bg-bg-weak p-1">
+            <div className="flex items-start flex-wrap gap-1 overflow-x-auto rounded-[10px] border border-stroke-soft bg-bg-weak p-1">
                 {filterTabs.map((tab) => (
                     <Button
                         variant="ghost"
@@ -52,7 +52,7 @@ export function TransactionFilters({
             {/* Search + Date Range */}
             <div className="flex items-center gap-3">
                 {/* Search */}
-                <div className="flex w-full items-center gap-2 rounded-lg border border-stroke-soft bg-bg-white py-2 pl-2.5 pr-2 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)] sm:w-55">
+                <div className="flex items-center gap-2 rounded-lg border border-stroke-soft bg-bg-white py-2 pl-2.5 pr-2 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)] w-55">
                     <Search className="size-5 shrink-0 text-text-soft" />
                     <input
                         type="text"

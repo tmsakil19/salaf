@@ -16,7 +16,7 @@ export default function ClientDetailsPage() {
   const [activeTab, setActiveTab] = useState("Overview");
 
   return (
-    <div className="space-y-5 pt-2">
+    <div className="min-w-0 space-y-5 pt-2">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm">
         <Icon icon={Analytics02Icon} className="h-4 w-4 text-sb-text-muted" />

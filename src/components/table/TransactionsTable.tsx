@@ -40,7 +40,7 @@ export function TransactionsTable() {
   }, [searchQuery, activeTab]);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex min-w-0 flex-col gap-3">
       {/* Header */}
       <TransactionHeader />
 
@@ -53,7 +53,7 @@ export function TransactionsTable() {
       />
 
       {/* Table */}
-      <div className="overflow-x-auto">
+      <div className="max-w-full overflow-x-auto">
         <div className="min-w-187.5">
           {/* Table Header */}
           <div className="flex items-center overflow-hidden rounded-lg border border-stroke-soft bg-bg-weak">

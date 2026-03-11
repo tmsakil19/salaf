@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={`${outfit.variable} antialiased font-(family-name:--font-outfit)`}>
         <SidebarProvider>
           <Header />
-          <main className="px-4 py-6 md:px-8">{children}</main>
+          <main className="min-w-0 flex-1 px-4 py-6 md:px-8">{children}</main>
         </SidebarProvider>
       </body>
     </html>
