@@ -19,7 +19,7 @@ export function SidebarHeader({ collapsed, onToggle }: SidebarHeaderProps) {
         )}>
             <div
                 className={cn(
-                    "flex items-center px-3 py-3 overflow-hidden transition-all duration-300 ease-in-out",
+                    "flex items-center pr-3 pl-6 py-3 overflow-hidden transition-all duration-300 ease-in-out",
                     collapsed ? "w-0 opacity-0 p-0" : "opacity-100"
                 )}
             >
