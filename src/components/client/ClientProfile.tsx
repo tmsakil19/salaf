@@ -10,6 +10,7 @@ import {
   MoreHorizontalIcon,
   WhatsappIcon,
 } from "@hugeicons/core-free-icons";
+import { Button } from "../ui/button";
 
 interface ClientProfileProps {
   client: ClientProfileType;
@@ -51,7 +52,7 @@ export function ClientProfile({ client }: ClientProfileProps) {
                   ) : (
                     <span
                       key={tag.label}
-                      className="inline-flex items-center gap-1 rounded-full border border-state-warning px-2.5 py-0.5 text-[11px] font-medium uppercase leading-3 tracking-[0.22px] text-state-warning"
+                      className="inline-flex items-center gap-1 rounded-full border border-state-warning px-2 h-6.25 text-[11px] font-medium uppercase leading-3 tracking-[0.22px] text-state-warning"
                     >
                       {tag.label}
                       <Icon icon={ArrowDown01Icon} className="size-4" />
@@ -66,9 +67,9 @@ export function ClientProfile({ client }: ClientProfileProps) {
           </div>
         </div>
         {/* More button */}
-        <button className="flex items-center justify-center rounded-lg border border-stroke-soft bg-bg-white p-1.5 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]">
+        <Button variant={"ghost"} className="flex items-center justify-center rounded-lg border border-stroke-soft bg-white hover:bg-gray-50 p-1.5 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)] size-8 ">
           <Icon icon={MoreHorizontalIcon} className="size-5 text-text-strong" />
-        </button>
+        </Button>
       </div>
 
       {/* Contact info row */}
@@ -82,14 +83,14 @@ export function ClientProfile({ client }: ClientProfileProps) {
             </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <button className="flex items-center justify-center rounded-lg bg-bg-weak px-1.5 py-1">
+            <Button className="flex items-center justify-center rounded-lg bg-bg-weak w-8 h-7">
               <Icon icon={Copy01Icon} className="size-5 text-text-sub" />
-            </button>
-            <button className="flex items-center justify-center rounded-lg bg-bg-weak px-1.5 py-1">
+            </Button>
+            <Button className="flex items-center justify-center rounded-lg bg-bg-weak px-1.5 h-7">
               <span className="px-1 text-sm font-medium leading-5 tracking-[-0.084px] text-text-sub">
                 Chat
               </span>
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -102,14 +103,14 @@ export function ClientProfile({ client }: ClientProfileProps) {
             </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <button className="flex items-center justify-center rounded-lg bg-bg-weak px-1.5 py-1">
+            <Button className="flex items-center justify-center rounded-lg bg-bg-weak w-8 h-7">
               <Icon icon={Copy01Icon} className="size-5 text-text-sub" />
-            </button>
-            <button className="flex items-center justify-center rounded-lg bg-bg-weak px-1.5 py-1">
+            </Button>
+            <Button className="flex items-center justify-center rounded-lg bg-bg-weak px-1.5 h-7">
               <span className="px-1 text-sm font-medium leading-5 tracking-[-0.084px] text-text-sub">
                 Visit
               </span>
-            </button>
+            </Button>
           </div>
         </div>
 

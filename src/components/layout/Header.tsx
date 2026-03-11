@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { MobileSidebarTrigger } from "@/components/sidebar";
 import { Icon } from "../ui/icon";
-import { ArrowDown01Icon, Notification01Icon, Search02Icon, User03Icon } from "@hugeicons/core-free-icons";
+import { ArrowDown01Icon, Search02Icon, User03Icon } from "@hugeicons/core-free-icons";
 import { NotificationBellIcon } from "../custom-icons";
+import { Button } from "../ui/button";
 
 export function Header() {
   return (
@@ -30,19 +31,19 @@ export function Header() {
       {/* Right: Actions */}
       <div className="flex items-center gap-2">
         {/* Search */}
-        <button className="flex size-10 items-center justify-center rounded-[10px]">
+        <Button variant={"ghost"} className="flex size-10 items-center justify-center rounded-[10px]">
           <Icon icon={Search02Icon} className="size-5 text-text-strong" />
-        </button>
+        </Button>
 
         {/* Notifications */}
-        <button className="relative flex size-10 items-center justify-center rounded-[10px]">
+        <Button variant={"ghost"} className="relative flex size-10 items-center justify-center rounded-[10px]">
           {/* <Icon icon={Notification01Icon} className="size-5 text-text-strong" /> */}
           <NotificationBellIcon className="size-5 text-text-strong" />
           <span className="absolute right-2.5 top-2.5 size-2 rounded-full bg-state-danger border border-white" />
-        </button>
+        </Button>
 
         {/* User Profile */}
-        <button className="flex items-center gap-1.5 rounded-[10px] border border-stroke-soft py-1 pl-1 pr-2">
+        <Button variant={"ghost"} className="flex items-center gap-1.5 rounded-[10px] border border-stroke-soft h-10 pl-1 pr-2 hover:bg-transparent ">
           <Image
             src="/images/user1.png"
             alt="Super Admin"
@@ -54,7 +55,7 @@ export function Header() {
             Super Admin
           </span>
           <Icon icon={ArrowDown01Icon} className="size-5 text-text-sub" />
-        </button>
+        </Button>
       </div>
     </header>
   );

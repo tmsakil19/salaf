@@ -4,6 +4,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { SidebarLeft01Icon, SidebarRight01Icon } from "@hugeicons/core-free-icons";
 import { Icon } from "@/components/ui/icon";
+import { Button } from "../ui/button";
 
 interface SidebarHeaderProps {
     collapsed: boolean;
@@ -24,7 +25,8 @@ export function SidebarHeader({ collapsed, onToggle }: SidebarHeaderProps) {
             >
                 <Image src="/images/logo.png" alt="Salaf" width={99} height={32} />
             </div>
-            <button
+            <Button
+                variant={"ghost"}
                 onClick={onToggle}
                 className="flex h-6 w-6 items-center justify-center text-sb-text-sub hover:text-sb-text-strong transition-colors cursor-pointer shrink-0"
             >
@@ -32,7 +34,7 @@ export function SidebarHeader({ collapsed, onToggle }: SidebarHeaderProps) {
                     icon={collapsed ? SidebarRight01Icon : SidebarLeft01Icon}
                     className="size-5"
                 />
-            </button>
+            </Button>
         </div>
     );
 }
