@@ -13,12 +13,12 @@ export function OverviewCard({ card }: OverviewCardProps) {
           <span className="flex size-10 items-center justify-center rounded-full bg-bg-weak">
             <Icon icon={card.icon} className="size-6 text-text-sub" />
           </span>
-          <span className="text-xl leading-5 tracking-[-0.12px] text-text-sub">
+          <span className="text-base leading-5 tracking-[-0.12px] text-text-sub sm:text-xl">
             {card.title}
           </span>
         </div>
         <div className="flex flex-col gap-2">
-          <p className="text-[32px] font-medium leading-10 tracking-[-0.16px] text-text-strong">
+          <p className="text-2xl font-medium leading-8 tracking-[-0.16px] text-text-strong sm:text-[32px] sm:leading-10">
             {card.value}
           </p>
           {card.subtitle && (
