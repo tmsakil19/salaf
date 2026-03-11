@@ -1,4 +1,4 @@
-export type TransactionType = "Deposit" | "Withdraw" | "Top Up" | "Refund";
+export type TransactionType = "Deposit" | "Withdraw" | "Top Up" | "Refund" | "Correction";
 export type TransactionStatus = "Approved" | "Pending" | "Completed";
 
 export interface Transaction {

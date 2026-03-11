@@ -1,5 +1,6 @@
 import type { OverviewCardData } from "@/interfaces/overviewCard.interface";
 import { Icon } from "@/components/ui/icon";
+import { CircleDollarIncomingIcon } from "../custom-icons/circleDollarIncoming";
 
 interface OverviewCardProps {
   card: OverviewCardData;
@@ -11,7 +12,8 @@ export function OverviewCard({ card }: OverviewCardProps) {
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3">
           <span className="flex size-10 items-center justify-center rounded-full bg-bg-weak">
-            <Icon icon={card.icon} className="size-6 text-text-sub" />
+            {/* <Icon icon={card.icon} className="size-6 text-text-sub" /> */}
+            <CircleDollarIncomingIcon className="size-6 text-text-sub" />
           </span>
           <span className="text-base leading-5 tracking-[-0.12px] text-text-sub sm:text-xl">
             {card.title}

@@ -19,6 +19,12 @@
   --color-state-danger: var(--state-danger);
   --color-state-error: var(--state-error);
   --color-state-warning: var(--state-warning);
+  --color-state-success: var(--state-success);
+  --color-state-success-light: var(--state-success-light);
+  --color-state-info: var(--state-info);
+  --color-state-info-light: var(--state-info-light);
+  --color-state-warning-light: var(--state-warning-light);
+  --color-primary-alpha: var(--primary-alpha);
   --color-chart-green: var(--chart-green);
   --color-chart-green-light: var(--chart-green-light);
   --color-chart-pink: var(--chart-pink);
@@ -86,6 +92,12 @@
   --state-danger: #ef4444;
   --state-error: #fb3748;
   --state-warning: #fa7319;
+  --state-success: #1fc16b;
+  --state-success-light: #c2f5da;
+  --state-info: #335cff;
+  --state-info-light: #c0d5ff;
+  --state-warning-light: #ffd9c0;
+  --primary-alpha: rgba(71, 108, 255, 0.1);
   --chart-green: #1fc16b;
   --chart-green-light: #e0faec;
   --chart-pink: #fb4ba3;
