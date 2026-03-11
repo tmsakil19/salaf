@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Icon } from "../ui/icon";
 import { Calendar02Icon } from "@hugeicons/core-free-icons";
+import { Input } from "../ui/input";
 
 interface TransactionFiltersProps {
     activeTab: string;
@@ -52,14 +53,14 @@ export function TransactionFilters({
             {/* Search + Date Range */}
             <div className="flex items-center gap-3">
                 {/* Search */}
-                <div className="flex items-center gap-2 rounded-lg border border-stroke-soft bg-bg-white py-2 pl-2.5 pr-2 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)] w-55">
+                <div className="flex items-center gap-2 rounded-lg border border-stroke-soft bg-bg-white py-1.5 pl-2.5 pr-2 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)] w-55">
                     <Search className="size-5 shrink-0 text-text-soft" />
-                    <input
+                    <Input
                         type="text"
                         placeholder="Search..."
                         value={searchQuery}
                         onChange={(e) => onSearchChange(e.target.value)}
-                        className="min-w-0 flex-1 bg-transparent text-sm leading-5 tracking-[-0.084px] text-text-strong placeholder:text-text-soft outline-none"
+                        className="p-0 placeholder:text-text-soft focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-transparent focus-visible:ring-offset-transparent border-0 h-5.5"
                     />
                     <span className="shrink-0 rounded border border-stroke-soft bg-bg-white px-1.5 py-0.5 text-xs font-medium uppercase leading-4 tracking-[0.48px] text-text-soft">
                         ⌘1
@@ -67,7 +68,7 @@ export function TransactionFilters({
                 </div>
 
                 {/* Date Range */}
-                <Button variant={"ghost"} className="flex items-center gap-2 rounded-lg border border-stroke-soft bg-bg-white py-2 pl-2.5 pr-2 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)] hover:bg-gray-50 font-normal">
+                <Button variant={"ghost"} className="flex items-center gap-2 rounded-lg border border-stroke-soft bg-bg-white h-9 pl-2.5 pr-2 shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)] hover:bg-gray-50 font-normal">
                     <Icon icon={Calendar02Icon} className="size-5 shrink-0 text-text-soft" />
                     <span className="hidden whitespace-nowrap text-sm leading-5 tracking-[-0.084px] text-text-sub sm:inline">
                         Date Range
