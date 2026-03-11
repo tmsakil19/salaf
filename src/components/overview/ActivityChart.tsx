@@ -86,13 +86,14 @@ export function ActivityChart() {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={chartData}
-              margin={{ top: 5, right: 0, left: -20, bottom: 0 }}
+              margin={{ top: 5, right: 0, left: 0, bottom: 0 }}
               barCategoryGap="20%"
               barGap={2}
             >
               <CartesianGrid
                 strokeDasharray="3 3"
-                vertical={false}
+                vertical={true}
+                horizontal={false}
                 stroke="var(--stroke-soft)"
               />
               <XAxis
@@ -101,14 +102,15 @@ export function ActivityChart() {
                 tickLine={false}
                 tick={{ fontSize: 12, fill: "var(--chart-axis)" }}
               />
-              <YAxis
+              {/* <YAxis
                 axisLine={false}
                 tickLine={false}
                 tick={{ fontSize: 12, fill: "var(--chart-axis)" }}
                 tickFormatter={(value: number) =>
                   `$${(value / 1000).toFixed(0)}k`
                 }
-              />
+                hide={true}
+              /> */}
               <Tooltip
                 formatter={(value) => [
                   `$${Number(value).toLocaleString()}`,
