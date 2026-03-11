@@ -4,6 +4,7 @@ import Image from "next/image";
 import { MobileSidebarTrigger } from "@/components/sidebar";
 import { Icon } from "../ui/icon";
 import { ArrowDown01Icon, Notification01Icon, Search02Icon, User03Icon } from "@hugeicons/core-free-icons";
+import { NotificationBellIcon } from "../custom-icons";
 
 export function Header() {
   return (
@@ -35,8 +36,9 @@ export function Header() {
 
         {/* Notifications */}
         <button className="relative flex size-10 items-center justify-center rounded-[10px]">
-          <Icon icon={Notification01Icon} className="size-5 text-text-strong" />
-          <span className="absolute right-3 top-3 size-1 rounded-full bg-state-danger" />
+          {/* <Icon icon={Notification01Icon} className="size-5 text-text-strong" /> */}
+          <NotificationBellIcon className="size-5 text-text-strong" />
+          <span className="absolute right-2.5 top-2.5 size-2 rounded-full bg-state-danger border border-white" />
         </button>
 
         {/* User Profile */}
