@@ -1,7 +1,5 @@
 import type { OverviewCardData } from "@/interfaces/overviewCard.interface";
-import { Icon } from "@/components/ui/icon";
-import { CircleDollarIncomingIcon } from "../custom-icons/circleDollarIncoming";
-
+import { CircleDollarIncomingIcon } from "../custom-icons";
 interface OverviewCardProps {
   card: OverviewCardData;
 }

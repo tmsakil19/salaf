@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ChevronsUpDown, ChevronsUpDownIcon, ListFilter } from "lucide-react";
+import { ListFilter } from "lucide-react";
 import { transactions } from "@/config/transactions";
 import type { Transaction } from "@/interfaces/transaction.interface";
 import { TransactionHeader } from "./TransactionHeader";
