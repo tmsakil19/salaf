@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Search, CalendarDays, Building2 } from "lucide-react";
+import { Search, CalendarDays } from "lucide-react";
 import { StatusBadge } from "@/components/table/StatusBadge";
 import { transactions } from "@/config/transactions";
 import type { Transaction } from "@/interfaces/transaction.interface";
 import { Button } from "../ui/button";
+import Image from "next/image";
+import { Input } from "../ui/input";
 
 const filterTabs = [
   "Balance Sheet",
@@ -46,7 +48,7 @@ export function TransactionsTable() {
               variant={"ghost"}
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`whitespace-nowrap rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${activeTab === tab
+              className={`whitespace-nowrap rounded-md px-5.5 h-7 py-1 text-xs font-medium transition-colors hover:bg-gray-50 ${activeTab === tab
                 ? "bg-white text-[#171717] shadow-[0px_1px_2px_0px_rgba(10,13,20,0.03)]"
                 : "text-[#a3a3a3] hover:text-[#5c5c5c]"
                 }`}
@@ -60,10 +62,10 @@ export function TransactionsTable() {
         <div className="flex items-center gap-2">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a3a3a3]" />
-            <input
+            <Input
               type="text"
               placeholder="Search..."
-              className="h-9 w-55 rounded-lg border border-[#ebebeb] bg-white pl-9 pr-10 text-sm text-[#171717] placeholder:text-[#a3a3a3] focus:outline-none focus:ring-1 focus:ring-[#335cff]"
+              className="h-9 w-55 rounded-lg border border-[#ebebeb] bg-white pl-9 pr-10 text-sm text-[#171717] placeholder:text-[#a3a3a3] focus:outline-none focus:ring-0 focus-visible:ring-0"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -116,9 +118,11 @@ export function TransactionsTable() {
                 <td className="px-5 py-3">
                   <div className="flex items-center gap-2">
                     {txn.hasIcon && (
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f7f7]">
-                        <Building2 className="h-4 w-4 text-[#5c5c5c]" />
-                      </div>
+                      // <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f7f7]">
+                      //   <Building2 className="h-4 w-4 text-[#5c5c5c]" />
+
+                      // </div>
+                      <Image src={"/images/Islamic-bank.png"} height={32} width={32} alt="Bank Icon" className="rounded-lg" />
                     )}
                     <div className="flex flex-col">
                       <span className="text-sm font-medium text-[#171717]">
