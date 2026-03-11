@@ -53,7 +53,7 @@ export default function ClientDetailsPage() {
           <h2 className="text-lg font-medium text-text-strong">Account Overview</h2>
 
           {/* Spend chart + Cards grid */}
-          <div className="grid lg:grid-cols-2 gap-5">
+          <div className="grid xl:grid-cols-2 gap-5">
             <div className="">
               <ActivityChart />
             </div>
@@ -63,7 +63,7 @@ export default function ClientDetailsPage() {
           </div>
 
           {/* Transactions Table */}
-          <TransactionsTable />
+          {/* <TransactionsTable /> */}
         </div>
       )}
 

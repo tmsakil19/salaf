@@ -72,7 +72,7 @@ export function ActivityChart() {
           </div>
           <Button
             variant="outline"
-            className="h-auto gap-2 rounded-xl border-stroke-soft px-4 py-2 text-sm font-medium leading-5 tracking-[-0.084px] text-text-sub hover:bg-bg-weak hover:text-text-sub"
+            className="h-auto gap-2 rounded-xl border-stroke-soft px-4 py-2 text-sm font-medium leading-5 tracking-[-0.084px] text-text-sub hover:bg-bg-weak hover:text-text-sub hidden sm:flex"
           >
             This Year
             <Icon icon={ArrowDown01Icon} className="size-5" />
